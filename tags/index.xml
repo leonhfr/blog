@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on leon h</title>
-    <link>https://leonhfr.github.io/tags/</link>
+    <link>https://leonh.fr/tags/</link>
     <description>leon h (Tags)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <atom:link href="https://leonhfr.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://leonh.fr/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
