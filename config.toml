@@ -14,10 +14,11 @@ googleAnalytics = ""
    author = "Leon Hollender"
    # tagline = "Yet another developer blog"
    description = "The blog of an architect (as in, buildings) turned software engineer."
-   # copyright = "&copy; 2020 leon h"
+   copyright = "All content is published under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a> license."
    dateFormat = "Jan 02, 2006"
    style = "dark"
    paginationSinglePost = true
+   plausible = "leonh.fr"
    readMore = false
    # themeAttrib = false
 
@@ -28,6 +29,9 @@ googleAnalytics = ""
   # webmentions:
   #   login: hugo-theme-anubis
   #   pingback: true
+
+[permalinks]
+  posts = "/:title/"
 
 [menu]
   [[menu.main]]

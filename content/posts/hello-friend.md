@@ -20,6 +20,8 @@ favorite: false
 >
 > **— Mr. Robot S01E01**
 
+<!--more-->
+
 This is the start of yet another developer blog. It's been a long time coming as I have always wanted to have a blog but I have been postponing it.
 
 Powered by [Hugo](https://gohugo.io/) with theme [Anubis](https://github.com/Mitrichius/hugo-theme-anubis).

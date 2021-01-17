@@ -14,15 +14,13 @@ This blog uses Github features extensively:
 - [x] Set up Github Pages hosting
 - [x] Set up Github Actions deployment
 - [x] Add utterance support
-- [ ] Add theme attribution option and customized copyright, specify license there
-- [ ] Add tagline
-- [ ] Add favicon
+- [x] Add customized copyright option
 - [ ] Add custom 404
-- [ ] Add plausible support
-- [ ] Blog list first words from description
+- [x] Add plausible support
+- [x] Remove `post` from url
+- [ ] Add option to show reading time
 - [ ] Tags with space do not work (404 error)
-- [ ] Remove `post` from url (https://github.com/LukasJoswiak/etch/wiki/Configuration) 
-- [ ] Add option to show reading time (https://kodify.net/hugo/strings/reading-time-text/)
+- [ ] Add tagline
 - [ ] Add social media links in footer (https://github.com/jakewies/hugo-theme-codex)
 - [ ] Add SEO schema (https://github.com/jakewies/hugo-theme-codex)
 - [ ] Host fonts locally
