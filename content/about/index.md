@@ -1,5 +1,6 @@
 ---
 title: About
+date: 2021-01-01
 author: leon h
 ---
 
@@ -7,4 +8,4 @@ I am an architect (as in, buildings) turned software engineer. I'm currently wor
 
 Email: `hello@<this domain name>`
 
-Follow me on [Github](https://github.com/leonhfr) or [LinkedIn](https://www.linkedin.com/in/leonhollender/).
+Github: [leonhfr](https://github.com/leonhfr)
