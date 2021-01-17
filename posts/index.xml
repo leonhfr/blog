@@ -3,19 +3,40 @@
   <channel>
     <title>Posts on leon h</title>
     <link>leonh.fr/posts/</link>
-    <description>Recent content in Posts on leon h</description>
+    <description>leon h (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="leonh.fr/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+    <atom:link href="leonh.fr/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Hello, friend</title>
       <link>leonh.fr/posts/hello-friend/</link>
       <pubDate>Sun, 15 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>leonh.fr/posts/hello-friend/</guid>
-      <description>&amp;ldquo;Hello, friend?&amp;rdquo; That&amp;rsquo;s lame. Maybe I should give you a name&amp;hellip; But that&amp;rsquo;s a slippery slope. You&amp;rsquo;re only in my head. We have to remember that&amp;hellip; Shit. It&amp;rsquo;s actually happened. I&amp;rsquo;m talking to an imaginary person.
-— Mr. Robot S01E01
- This is the start of yet another developer blog. It&amp;rsquo;s been a long time coming as I have always wanted to have a blog but I have been postponing it.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Hello, friend?&amp;rdquo; That&amp;rsquo;s lame.
+Maybe I should give you a name&amp;hellip;
+But that&amp;rsquo;s a slippery slope.
+You&amp;rsquo;re only in my head.
+We have to remember that&amp;hellip;
+Shit.
+It&amp;rsquo;s actually happened.
+I&amp;rsquo;m talking to an imaginary person.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;— Mr. Robot S01E01&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is the start of yet another developer blog. It&amp;rsquo;s been a long time coming as I have always wanted to have a blog but I have been postponing it.&lt;/p&gt;
+&lt;p&gt;Powered by &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; with theme &lt;a href=&#34;https://github.com/Mitrichius/hugo-theme-anubis&#34;&gt;Anubis&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This blog uses Github features extensively:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Github Pages for hosting&lt;/li&gt;
+&lt;li&gt;Github Actions for deployment&lt;/li&gt;
+&lt;li&gt;Github issues for comments (via &lt;a href=&#34;https://utteranc.es/&#34;&gt;utteranc.es&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>
