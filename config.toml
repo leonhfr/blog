@@ -21,7 +21,7 @@ googleAnalytics = ""
    readMore = false
    # themeAttrib = false
 
-  utterancesRepo = "leonhfr/blog"
+  utterancesRepo = "leonhfr/leonhfr.github.io"
   utterancesTheme = "github-dark"
   utterancesIssue = "pathname"
 
