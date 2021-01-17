@@ -13,10 +13,10 @@
     
     <item>
       <title>Hello, friend</title>
-      <link>https://leonh.fr/posts/hello-friend/</link>
+      <link>https://leonh.fr/hello-friend/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://leonh.fr/posts/hello-friend/</guid>
+      <guid>https://leonh.fr/hello-friend/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;Hello, friend?&amp;rdquo; That&amp;rsquo;s lame.
 Maybe I should give you a name&amp;hellip;
@@ -35,8 +35,7 @@ I&amp;rsquo;m talking to an imaginary person.&lt;/p&gt;
 &lt;li&gt;Github Pages for hosting&lt;/li&gt;
 &lt;li&gt;Github Actions for deployment&lt;/li&gt;
 &lt;li&gt;Github issues for comments (via &lt;a href=&#34;https://utteranc.es/&#34;&gt;utteranc.es&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+&lt;/ul&gt;</description>
     </item>
     
   </channel>
