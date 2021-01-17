@@ -11,7 +11,7 @@ This blog uses Github features extensively:
 
 ## todos
 
-- [ ] Set up Github Pages hosting
+- [x] Set up Github Pages hosting
 - [ ] Set up Github Actions deployment
 - [x] Add utterance support
 - [ ] Add theme attribution option and customized copyright, specify license there

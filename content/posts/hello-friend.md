@@ -1,7 +1,7 @@
 ---
 title: Hello, friend
 description: Hello, friend? That's lame. Maybe I should give you a name?
-date: 2020-11-15
+date: 2021-01-01
 author: leon h
 draft: false
 favorite: false
