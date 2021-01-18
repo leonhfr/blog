@@ -6,6 +6,6 @@ author: leon h
 
 I am an architect (as in, buildings) turned software engineer. I'm currently working at [AdSecure](https://www.adsecure.com/). I code in TypeScript, Golang, and Rust.
 
-Email: `hello@<this domain name>`
+Email: [`hello@leonh.fr`](mailto:hello@leonh.fr)
 
 Github: [leonhfr](https://github.com/leonhfr)
