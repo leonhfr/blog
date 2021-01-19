@@ -14,21 +14,21 @@ googleAnalytics = ""
    author = "Leon Hollender"
    # tagline = "Yet another developer blog"
    description = "The blog of an architect (as in, buildings) turned software engineer."
-   copyright = "All content is published under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a> license."
+   copyright = "Say hi: <a href=\"mailto:hello@leonh.fr\" rel=\"me\">hello@leonh.fr</a><br />All content is published under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a> license."
    dateFormat = "Jan 02, 2006"
-   style = "dark"
+   style = "dark-without-switcher"
    paginationSinglePost = true
    plausible = "leonh.fr"
    readMore = false
    # themeAttrib = false
 
-  utterancesRepo = "leonhfr/leonhfr.github.io"
+  utterancesRepo = "leonhfr/blog"
   utterancesTheme = "github-dark"
   utterancesIssue = "pathname"
 
-  # webmentions:
-  #   login: hugo-theme-anubis
-  #   pingback: true
+  [params.webmentions]
+    login = "leonhfr"
+    pingback = true
 
 [permalinks]
   posts = "/:title/"
