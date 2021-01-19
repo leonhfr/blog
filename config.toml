@@ -27,7 +27,7 @@ googleAnalytics = ""
   utterancesIssue = "pathname"
 
   [params.webmentions]
-    login = "leonhfr"
+    login = "leonh.fr"
     pingback = true
 
 [permalinks]
