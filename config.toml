@@ -2,7 +2,7 @@ baseURL = "https://leonh.fr"
 languageCode = "en-us"
 title = "leon h"
 theme = "anubis"
-paginate = 3
+paginate = 5
 
 disqusShortname = ""
 googleAnalytics = ""
@@ -11,44 +11,56 @@ googleAnalytics = ""
   name = "Leon Hollender"
 
 [params]
-   author = "Leon Hollender"
-   # tagline = "Yet another developer blog"
-   description = "The blog of an architect (as in, buildings) turned software engineer."
-   copyright = "Say hi: <a href=\"mailto:hello@leonh.fr\" rel=\"me\">hello@leonh.fr</a><br />All content is published under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a> license."
-   dateFormat = "Jan 02, 2006"
-   style = "dark-without-switcher"
-   paginationSinglePost = true
-   plausible = "leonh.fr"
-   readMore = false
-   # themeAttrib = false
+  author = "Leon Hollender"
+  description = "The blog of an architect (as in, buildings) turned software engineer."
+  copyright = "Say hi: <a href=\"mailto:hello@leonh.fr\" rel=\"me\">hello@leonh.fr</a><br />All content is published under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a> license."
+  dateFormat = "Jan 02, 2006"
+  style = "dark-without-switcher"
+  paginationSinglePost = true
+  plausible = "leonh.fr"
+  readMore = false
+  copyCodeButton = true
+  rssAsSocialIcon = true
 
   utterancesRepo = "leonhfr/blog"
   utterancesTheme = "github-dark"
   utterancesIssue = "pathname"
 
-  [params.webmentions]
-    login = "leonh.fr"
-    pingback = true
+[params.webmentions]
+  login = "leonh.fr"
+  pingback = true
 
 [permalinks]
   posts = "/:title/"
 
+# [[params.social]]
+# id = "docs"
+# url = "https://gohugo.io/documentation/"
+
+[[params.social]]
+  id = "github"
+  url = "https://github.com/leonhfr"
+
+[[params.social]]
+  id = "linkedin"
+  url = "https://www.linkedin.com/in/leonhollender"
+
 [menu]
   [[menu.main]]
     identifier = "about"
-    name = "About"
+    name = "about"
     url = "/about/"
     weight = 1
 
   # [[menu.main]]
   #   identifier = "tags"
-  #   name = "Tags"
+  #   name = "tags"
   #   url = "/tags/"
   #   weight = 2
 
   [[menu.main]]
     identifier = "archive"
-    name = "Archive"
+    name = "archive"
     url = "/posts/"
     weight = 3
 
@@ -58,11 +70,3 @@ googleAnalytics = ""
 
 [markup.goldmark.renderer]
   unsafe = true
-
-# faviconImg = ""
-# email = "hello@leonh.fr"
-# github = "https://github.com/leonhfr/"
-# linkedin = "https://www.linkedin.com/leonhollender/"
-# 404 Configuration
-# head404 = "Sorry, I can't find what you want."
-# sub404 = "Back to <a href='/'>Home</a>."
