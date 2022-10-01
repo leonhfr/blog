@@ -12,9 +12,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>Hello, friend - leon h</title>
+<title>Help Message for Shell Scripts - leon h</title>
 
-<meta name="description" content="Hello, friend? That&#39;s lame. Maybe I should give you a name?">
+<meta name="description" content="Description">
 
 
 
@@ -86,17 +86,17 @@
 
 
 
-<meta property="og:title" content="Hello, friend" />
-<meta property="og:description" content="Hello, friend? That&#39;s lame. Maybe I should give you a name?" />
+<meta property="og:title" content="Help Message for Shell Scripts" />
+<meta property="og:description" content="Description" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://leonh.fr/hello-friend/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-01-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-01-01T00:00:00+00:00" />
+<meta property="og:url" content="https://leonh.fr/help-message-for-shell-scripts/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-16T00:00:00+00:00" />
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hello, friend"/>
-<meta name="twitter:description" content="Hello, friend? That&#39;s lame. Maybe I should give you a name?"/>
+<meta name="twitter:title" content="Help Message for Shell Scripts"/>
+<meta name="twitter:description" content="Description"/>
 
 
 
@@ -205,31 +205,45 @@
     <article class="post h-entry">
         <div class="post-header">
             <header>
-                <h1 class="p-name post-title">Hello, friend</h1>
+                <h1 class="p-name post-title">Help Message for Shell Scripts</h1>
 
                 
             </header>
         </div>
         <div class="content e-content">
-            <blockquote>
-<p>&ldquo;Hello, friend?&rdquo; That&rsquo;s lame.
-Maybe I should give you a name&hellip;
-But that&rsquo;s a slippery slope.
-You&rsquo;re only in my head.
-We have to remember that&hellip;
-Shit.
-It&rsquo;s actually happened.
-I&rsquo;m talking to an imaginary person.</p>
-<p><strong>— Mr. Robot S01E01</strong></p>
-</blockquote>
-<p>This is the start of yet another developer blog. It&rsquo;s been a long time coming as I have always wanted to have a blog but I have been postponing it.</p>
-<p>Powered by <a href="https://gohugo.io/">Hugo</a> with theme <a href="https://github.com/Mitrichius/hugo-theme-anubis">Anubis</a>.</p>
-<p>This blog uses Github features extensively:</p>
+            <p>Shell scripts are awesome. They are so useful to automate repetitive and boring work. The hardest thing about them is documentation though. How often have you written one, put it in the <code>bin</code> directory and forgot all about it? How cool would it be to have a help message for them?</p>
+<p>We could, of course, implement it with a bunch of echo calls. But there&rsquo;s a neat trick. I originally learned it in a blog post by <a href="https://github.com/kovetskiy">Egor Kovetskiy</a>, but it seems it&rsquo;s not available anymore. As it was very useful to me, I&rsquo;m putting it out there again.</p>
+<p>Add your help message as comments at the top of your file, right after the shebang.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### my-script — does one thing well</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Usage:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">###   my-script &lt;input&gt; &lt;output&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Options:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">###   &lt;input&gt;   Input file to read.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">###   &lt;output&gt;  Output file to write. Use &#39;-&#39; for stdout.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">###   -h        Show this message.</span>
+</span></span></code></pre></div><p>Next, we need to get this message using <code>sed</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sed -rn <span style="color:#e6db74">&#39;s/^### ?//p&#39;</span> <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>What&rsquo;s happening here:</p>
 <ul>
-<li>Github Pages for hosting</li>
-<li>Github Actions for deployment</li>
-<li>Github issues for comments (via <a href="https://utteranc.es/">utteranc.es</a>)</li>
+<li><code>$0</code> is the filename of the file that is being executed;</li>
+<li><code>-r</code> flag means using extended regular expressions;</li>
+<li><code>-n</code> flag prevents <code>sed</code> from echoing each line to the standard output;</li>
+<li><code>s</code> stands for substitution of the following pattern;</li>
+<li><code>/</code> defines the start and end of the pattern;</li>
+<li><code>^### ?</code> matches a string starting with <code>###</code> followed by an optional space;</li>
+<li><code>//</code> defines the substitution string, here an empty string;</li>
+<li><code>p</code> prints the result of the substitution.</li>
 </ul>
+<p>Now, we just need to call this if an <code>-h</code> argument or no arguments are passed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $# <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;-h&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  sed -rn <span style="color:#e6db74">&#39;s/^### ?//p&#39;</span> <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>Hope it helps!</p>
         </div>
         
 
@@ -238,10 +252,10 @@ I&rsquo;m talking to an imaginary person.</p>
 
 <div class="post-info">
     
-        <div class="post-date dt-published">Jan 01, 2021</div>
+        <div class="post-date dt-published">Feb 16, 2022</div>
     
 
-    <a class="post-hidden-url u-url" href="https://leonh.fr/hello-friend/">https://leonh.fr/hello-friend/</a>
+    <a class="post-hidden-url u-url" href="https://leonh.fr/help-message-for-shell-scripts/">https://leonh.fr/help-message-for-shell-scripts/</a>
     <a href="https://leonh.fr" class="p-name p-author post-hidden-author h-card" rel="me">leon h</a>
 
 
@@ -258,12 +272,12 @@ I&rsquo;m talking to an imaginary person.</p>
     
         
     <div class="pagination post-pagination">
-        <div class="left pagination-item ">
-            
-                <a href="/help-message-for-shell-scripts/">Help Message for Shell Scripts</a>
+        <div class="left pagination-item disabled">
             
         </div>
-        <div class="right pagination-item disabled">
+        <div class="right pagination-item ">
+            
+                <a href="/hello-friend/">Hello, friend</a>
             
         </div>
     </div>
