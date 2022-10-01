@@ -1,11 +1,11 @@
 ---
 title: {{ replace .Name "-" " " | title }}
 description: Description
-date: {{ .Date.Format "2006-01-02" }}
+date: {{ .Date | time.Format "2006-01-02" }}
 author: leon h
 draft: true
 favorite: false
-# tags: -
+# tags:
 #   - tag1
 ---
 
