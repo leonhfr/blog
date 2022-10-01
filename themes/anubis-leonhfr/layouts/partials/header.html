@@ -1,0 +1,14 @@
+<div class="header-top">
+    {{ partial "site-title.html" . }}
+    {{ if .Site.Menus.main }}
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        <h2><a class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL | absLangURL }}" title="{{ .Title }}">{{ .Name }}</a></h2>
+        {{ end }}
+    {{ end }}
+    {{ partial "social.html" . }}
+</div>
+
+{{ if .Site.Params.mathjax }}{{ partial "mathjax_support.html" . }}{{ end }}
+
+{{ partial "header-extra.html" . }}

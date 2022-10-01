@@ -1,7 +1,7 @@
 baseURL = "https://leonh.fr"
 languageCode = "en-us"
 title = "leon h"
-theme = "anubis"
+theme = "anubis-leonhfr"
 paginate = 5
 
 disqusShortname = ""
