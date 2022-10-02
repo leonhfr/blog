@@ -2,7 +2,7 @@
 
 Yet another developer blog: [leonh.fr](https://leonh.fr/)
 
-Powered by [Hugo](https://gohugo.io/) with theme [Anubis](https://github.com/Mitrichius/hugo-theme-anubis).
+Powered by [Hugo](https://gohugo.io/) with theme [Anubis](https://github.com/Mitrichius/hugo-theme-anubis) (modified).
 
 This blog uses Github features extensively:
 
