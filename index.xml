@@ -6,13 +6,106 @@
     <description>leon h</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://leonh.fr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Help Message for Shell Scripts</title>
+      <title>Simple shell script subcommands</title>
+      <link>https://leonh.fr/simple-shell-script-subcommands/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://leonh.fr/simple-shell-script-subcommands/</guid>
+      <description>&lt;p&gt;Shell scripts are awesome, &lt;a href=&#34;https://leonh.fr/help-message-for-shell-scripts/&#34;&gt;as we know&lt;/a&gt;. Now, we have nice shell scripts that self document. But if you&amp;rsquo;re anything like me, then you have lots of them in your &lt;code&gt;~/bin&lt;/code&gt; or wherever you put them. One reason for that is that each script can do one thing and one thing only. Wouldn&amp;rsquo;t it be nice if we could group different functionalities in the same files?&lt;/p&gt;
+&lt;p&gt;Some CLIs already do that with subcommands. Think &lt;code&gt;git add&lt;/code&gt; or &lt;code&gt;go get&lt;/code&gt;. We&amp;rsquo;re going to check how to simply have subcommands with shell scripts.&lt;/p&gt;
+&lt;p&gt;First, we put each functionality in its own function. Each function should have the prefix &lt;code&gt;sub_&lt;/code&gt;. Of course, we have the documentation at the top and a help function to parse and print it. Note that each function also has a comment.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;###&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### my-script — does several things well&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;###&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### Usage: my-script [options] &amp;lt;subcommand&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;###&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### Options:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;###   -h,--help: Show this message.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;###&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### Subcommands:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### help: show this message&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sub_help&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sed -rn &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s/^### ?//p&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### foo: do some the foo thing&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sub_foo&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Running the foo subcommand&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### bar: do the bar thing, which is related but different to the foo thing&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sub_bar&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Running the bar subcommand&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;We can use first argument with &amp;#39;&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The second argument is &amp;#39;&lt;/span&gt;$2&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;, and so on&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, at the end of the script, we put this piece of magic:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SCRIPT_NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;basename $0&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SUBCOMMAND&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; $SUBCOMMAND in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; | &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-h&amp;#34;&lt;/span&gt; | &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--help&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sub_help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  *&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    shift
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sub_&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;SUBCOMMAND&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; $@
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $? &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;127&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Error: &amp;#39;&lt;/span&gt;$SUBCOMMAND&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; is not a known subcommand.&amp;#34;&lt;/span&gt; &amp;gt;&amp;amp;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;       Run &amp;#39;&lt;/span&gt;$SCRIPT_NAME&lt;span style=&#34;color:#e6db74&#34;&gt; --help&amp;#39; for a list of known subcommands.&amp;#34;&lt;/span&gt; &amp;gt;&amp;amp;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      exit &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;esac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What&amp;rsquo;s happening here? Some notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;we store the name of the script with &lt;code&gt;basename&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;we use a bash &lt;a href=&#34;https://linuxize.com/post/bash-case-statement/&#34;&gt;case statement&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;we check the first argument, the subcommand, if it&amp;rsquo;s one of &lt;code&gt;-h&lt;/code&gt;, &lt;code&gt;--help&lt;/code&gt; or an empty string, we print the help and exit;&lt;/li&gt;
+&lt;li&gt;otherwise (see the &lt;code&gt;*)&lt;/code&gt; which is the default case), we:
+&lt;ul&gt;
+&lt;li&gt;use the &lt;code&gt;shift&lt;/code&gt; command to shift positional parameters to the left, so command name which was in &lt;code&gt;$1&lt;/code&gt; is placed at &lt;code&gt;$0&lt;/code&gt; instead, and so on for other arguments;&lt;/li&gt;
+&lt;li&gt;we execute the subcommand function with the repositioned arguments &lt;code&gt;$@&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;if the subcommand doesn&amp;rsquo;t exist, we print an error message using the script name.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now the cool thing about this is that not only can we add as many subcommands as we like, but the help message also gets updated with the subcommand comments, so the script is still self documenting.&lt;/p&gt;
+&lt;p&gt;Printing the help:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ my-script --help
+my-script — does several things well
+
+Usage: my-script [options] &amp;lt;subcommand&amp;gt;
+
+Options:
+  -h,--help: Show this message.
+
+Subcommands:
+help: show this message
+foo: do some the foo thing
+bar: do the bar thing, which is related but different to the foo thing
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Running the bar subcommand:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ my-script bar hello world
+Running the bar subcommand
+We can use first argument with &amp;#39;hello&amp;#39;
+The second argument is &amp;#39;world&amp;#39;, and so on
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Command who doesn&amp;rsquo;t exist:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ my-script hello
+Error: &amp;#39;hello&amp;#39; is not a known subcommand.
+       Run &amp;#39;my-script --help&amp;#39; for a list of known subcommands.
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Help message for shell scripts</title>
       <link>https://leonh.fr/help-message-for-shell-scripts/</link>
       <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
       
