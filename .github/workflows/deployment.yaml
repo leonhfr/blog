@@ -23,7 +23,7 @@ jobs:
           HUGO_ENV: production
 
       - name: Build tinysearch
-        uses: leonhfr/tinysearch-action@master
+        uses: leonhfr/tinysearch-action@v1
         with:
           output_dir: public/wasm
           output_types: |
