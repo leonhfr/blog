@@ -23,18 +23,15 @@ jobs:
           HUGO_ENV: production
 
       - name: Build tinysearch
-        uses: leonhfr/tinysearch-action@v0.0.1-alpha
+        uses: leonhfr/tinysearch-action@master
+        with:
+          output_dir: public/wasm
+          output_types: |
+            wasm
 
-      - name: Test Deploy
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: wasm
+          publish_branch: gh-pages
           publish_dir: ./public
-
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_branch: gh-pages
-      #     publish_dir: ./public
