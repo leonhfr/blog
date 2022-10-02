@@ -32,6 +32,9 @@ googleAnalytics = ""
 [permalinks]
   posts = "/:title/"
 
+[outputs]
+    home = ["html", "rss", "json"]
+
 # [[params.social]]
 # id = "docs"
 # url = "https://gohugo.io/documentation/"
