@@ -211,51 +211,51 @@
             <p>Shell scripts are awesome, <a href="https://leonh.fr/help-message-for-shell-scripts/">as we know</a>. Now, we have nice shell scripts that self document. But if you&rsquo;re anything like me, then you have lots of them in your <code>~/bin</code> or wherever you put them. One reason for that is that each script can do one thing and one thing only. Wouldn&rsquo;t it be nice if we could group different functionalities in the same files?</p>
 <p>Some CLIs already do that with subcommands. Think <code>git add</code> or <code>go get</code>. We&rsquo;re going to check how to simply have subcommands with shell scripts.</p>
 <p>First, we put each functionality in its own function. Each function should have the prefix <code>sub_</code>. Of course, we have the documentation at the top and a help function to parse and print it. Note that each function also has a comment.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">###</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### my-script — does several things well</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### Usage: my-script [options] &lt;subcommand&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### Options:</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###   -h,--help: Show this message.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### Subcommands:</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#cd2828;font-weight:bold">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#cd2828;font-weight:bold"></span><span style="color:#999;font-style:italic">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### my-script — does several things well</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### Usage: my-script [options] &lt;subcommand&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### Options:</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###   -h,--help: Show this message.</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### Subcommands:</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### help: show this message</span>
-</span></span><span style="display:flex;"><span>sub_help<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  sed -rn <span style="color:#e6db74">&#39;s/^### ?//p&#39;</span> <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### help: show this message</span>
+</span></span><span style="display:flex;"><span>sub_help() {
+</span></span><span style="display:flex;"><span>  sed -rn <span style="color:#ed9d13">&#39;s/^### ?//p&#39;</span> <span style="color:#ed9d13">&#34;</span><span style="color:#40ffff">$0</span><span style="color:#ed9d13">&#34;</span>
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### foo: do some the foo thing</span>
-</span></span><span style="display:flex;"><span>sub_foo<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Running the foo subcommand&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### foo: do some the foo thing</span>
+</span></span><span style="display:flex;"><span>sub_foo() {
+</span></span><span style="display:flex;"><span>    <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;Running the foo subcommand&#34;</span>
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### bar: do the bar thing, which is related but different to the foo thing</span>
-</span></span><span style="display:flex;"><span>sub_bar<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Running the bar subcommand&#34;</span>
-</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;We can use first argument with &#39;</span>$1<span style="color:#e6db74">&#39;&#34;</span>
-</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;The second argument is &#39;</span>$2<span style="color:#e6db74">&#39;, and so on&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### bar: do the bar thing, which is related but different to the foo thing</span>
+</span></span><span style="display:flex;"><span>sub_bar() {
+</span></span><span style="display:flex;"><span>    <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;Running the bar subcommand&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;We can use first argument with &#39;</span><span style="color:#40ffff">$1</span><span style="color:#ed9d13">&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;The second argument is &#39;</span><span style="color:#40ffff">$2</span><span style="color:#ed9d13">&#39;, and so on&#34;</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Then, at the end of the script, we put this piece of magic:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>SCRIPT_NAME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>basename $0<span style="color:#66d9ef">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#40ffff">SCRIPT_NAME</span>=<span style="color:#6ab825;font-weight:bold">$(</span>basename <span style="color:#40ffff">$0</span><span style="color:#6ab825;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SUBCOMMAND<span style="color:#f92672">=</span>$1
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> $SUBCOMMAND in
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;&#34;</span> | <span style="color:#e6db74">&#34;-h&#34;</span> | <span style="color:#e6db74">&#34;--help&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#40ffff">SUBCOMMAND</span>=<span style="color:#40ffff">$1</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">case</span> <span style="color:#40ffff">$SUBCOMMAND</span> in
+</span></span><span style="display:flex;"><span>  <span style="color:#ed9d13">&#34;&#34;</span> | <span style="color:#ed9d13">&#34;-h&#34;</span> | <span style="color:#ed9d13">&#34;--help&#34;</span>)
 </span></span><span style="display:flex;"><span>    sub_help
 </span></span><span style="display:flex;"><span>    ;;
-</span></span><span style="display:flex;"><span>  *<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    shift
-</span></span><span style="display:flex;"><span>    sub_<span style="color:#e6db74">${</span>SUBCOMMAND<span style="color:#e6db74">}</span> $@
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? <span style="color:#f92672">=</span> <span style="color:#ae81ff">127</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Error: &#39;</span>$SUBCOMMAND<span style="color:#e6db74">&#39; is not a known subcommand.&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;       Run &#39;</span>$SCRIPT_NAME<span style="color:#e6db74"> --help&#39; for a list of known subcommands.&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>      exit <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>  *)
+</span></span><span style="display:flex;"><span>    <span style="color:#24909d">shift</span>
+</span></span><span style="display:flex;"><span>    sub_<span style="color:#ed9d13">${</span><span style="color:#40ffff">SUBCOMMAND</span><span style="color:#ed9d13">}</span> <span style="color:#40ffff">$@</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">if</span> [ <span style="color:#40ffff">$?</span> = <span style="color:#3677a9">127</span> ]; <span style="color:#6ab825;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;Error: &#39;</span><span style="color:#40ffff">$SUBCOMMAND</span><span style="color:#ed9d13">&#39; is not a known subcommand.&#34;</span> &gt;&amp;<span style="color:#3677a9">2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;       Run &#39;</span><span style="color:#40ffff">$SCRIPT_NAME</span><span style="color:#ed9d13"> --help&#39; for a list of known subcommands.&#34;</span> &gt;&amp;<span style="color:#3677a9">2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#24909d">exit</span> <span style="color:#3677a9">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">fi</span>
 </span></span><span style="display:flex;"><span>    ;;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">esac</span>
 </span></span></code></pre></div><p>What&rsquo;s happening here? Some notes:</p>
 <ul>
 <li>we store the name of the script with <code>basename</code>;</li>

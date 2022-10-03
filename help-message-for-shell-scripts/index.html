@@ -211,19 +211,19 @@
             <p>Shell scripts are awesome. They are so useful to automate repetitive and boring work. The hardest thing about them is documentation though. How often have you written one, put it in the <code>bin</code> directory and forgot all about it? How cool would it be to have a help message for them?</p>
 <p>We could, of course, implement it with a bunch of echo calls. But there&rsquo;s a neat trick. I originally learned it in a blog post by <a href="https://github.com/kovetskiy">Egor Kovetskiy</a>, but it seems it&rsquo;s not available anymore. As it was very useful to me, I&rsquo;m putting it out there again.</p>
 <p>Add your help message as comments at the top of your file, right after the shebang.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">###</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### my-script — does one thing well</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### Usage:</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###   my-script &lt;input&gt; &lt;output&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### Options:</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###   &lt;input&gt;   Input file to read.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###   &lt;output&gt;  Output file to write. Use &#39;-&#39; for stdout.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###   -h        Show this message.</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#cd2828;font-weight:bold">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#cd2828;font-weight:bold"></span><span style="color:#999;font-style:italic">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### my-script — does one thing well</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### Usage:</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###   my-script &lt;input&gt; &lt;output&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### Options:</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###   &lt;input&gt;   Input file to read.</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###   &lt;output&gt;  Output file to write. Use &#39;-&#39; for stdout.</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">###   -h        Show this message.</span>
 </span></span></code></pre></div><p>Next, we need to get this message using <code>sed</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sed -rn <span style="color:#e6db74">&#39;s/^### ?//p&#39;</span> <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sed -rn <span style="color:#ed9d13">&#39;s/^### ?//p&#39;</span> <span style="color:#ed9d13">&#34;</span><span style="color:#40ffff">$0</span><span style="color:#ed9d13">&#34;</span>
 </span></span></code></pre></div><p>What&rsquo;s happening here:</p>
 <ul>
 <li><code>$0</code> is the filename of the file that is being executed;</li>
@@ -236,10 +236,10 @@
 <li><code>p</code> prints the result of the substitution.</li>
 </ul>
 <p>Now, we just need to call this if an <code>-h</code> argument or no arguments are passed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $# <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;-h&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>  sed -rn <span style="color:#e6db74">&#39;s/^### ?//p&#39;</span> <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">if</span> [[ <span style="color:#40ffff">$#</span> == <span style="color:#3677a9">0</span> ]] || [[ <span style="color:#ed9d13">&#34;</span><span style="color:#40ffff">$1</span><span style="color:#ed9d13">&#34;</span> == <span style="color:#ed9d13">&#34;-h&#34;</span> ]]; <span style="color:#6ab825;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  sed -rn <span style="color:#ed9d13">&#39;s/^### ?//p&#39;</span> <span style="color:#ed9d13">&#34;</span><span style="color:#40ffff">$0</span><span style="color:#ed9d13">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#24909d">exit</span> <span style="color:#3677a9">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">fi</span>
 </span></span></code></pre></div><p>Hope it helps!</p>
         </div>
         
