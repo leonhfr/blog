@@ -38,6 +38,6 @@
     {{ end }}
 
     {{ if not .Params.disableComments }}
-        {{ partial "comments.html" . }}
+        {{ if .Site.Params.UtterancesRepo }} {{ partial "utterances.html" . }} {{ end }}
     {{ end }}
 {{ end }}
