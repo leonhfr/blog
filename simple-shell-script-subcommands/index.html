@@ -208,9 +208,9 @@
             </header>
         </div>
         <div class="content e-content">
-            <p>Shell scripts are awesome, <a href="https://leonh.fr/help-message-for-shell-scripts/">as we know</a>. Now, we have nice shell scripts that self document. But if you&rsquo;re anything like me, then you have lots of them in your <code>~/bin</code> or wherever you put them. One reason for that is that each script can do one thing and one thing only. Wouldn&rsquo;t it be nice if we could group different functionalities in the same files?</p>
+            <p>Shell scripts are awesome, <a href="https://leonh.fr/help-message-for-shell-scripts/">as we know</a>. Now, we have nice shell scripts that self document. But if you&rsquo;re anything like me, then you have lots of them in your <code>~/bin</code> or wherever you put them. One reason for that is that each script can do one thing and one thing only. Wouldn&rsquo;t it be nice if we could group different functionalities in the same file?</p>
 <p>Some CLIs already do that with subcommands. Think <code>git add</code> or <code>go get</code>. We&rsquo;re going to check how to simply have subcommands with shell scripts.</p>
-<p>First, we put each functionality in its own function. Each function should have the prefix <code>sub_</code>. Of course, we have the documentation at the top and a help function to parse and print it. Note that each function also has a comment.</p>
+<p>First, we put each functionality in its own function. Each function should be prefixed <code>sub_</code>. Of course, we have the documentation at the top and a help function to parse and print it. Note that each function also has a comment.</p>
 <div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#cd2828;font-weight:bold">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#cd2828;font-weight:bold"></span><span style="color:#999;font-style:italic">###</span>
 </span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">### my-script — does several things well</span>
@@ -271,28 +271,28 @@
 </ul>
 <p>Now the cool thing about this is that not only can we add as many subcommands as we like, but the help message also gets updated with the subcommand comments, so the script is still self documenting.</p>
 <p>Printing the help:</p>
-<pre tabindex="0"><code>$ my-script --help
-my-script — does several things well
-
-Usage: my-script [options] &lt;subcommand&gt;
-
-Options:
-  -h,--help: Show this message.
-
-Subcommands:
-help: show this message
-foo: do some the foo thing
-bar: do the bar thing, which is related but different to the foo thing
-</code></pre><p>Running the bar subcommand:</p>
-<pre tabindex="0"><code>$ my-script bar hello world
-Running the bar subcommand
-We can use first argument with &#39;hello&#39;
-The second argument is &#39;world&#39;, and so on
-</code></pre><p>Command who doesn&rsquo;t exist:</p>
-<pre tabindex="0"><code>$ my-script hello
-Error: &#39;hello&#39; is not a known subcommand.
-       Run &#39;my-script --help&#39; for a list of known subcommands.
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ my-script --help
+</span></span><span style="display:flex;"><span>my-script — does several things well
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Usage: my-script [options] &lt;subcommand&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span>  -h,--help: Show this message.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Subcommands:
+</span></span><span style="display:flex;"><span>help: show this message
+</span></span><span style="display:flex;"><span>foo: <span style="color:#6ab825;font-weight:bold">do</span> some the foo thing
+</span></span><span style="display:flex;"><span>bar: <span style="color:#6ab825;font-weight:bold">do</span> the bar thing, which is related but different to the foo thing
+</span></span></code></pre></div><p>Running the bar subcommand:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ my-script bar hello world
+</span></span><span style="display:flex;"><span>Running the bar subcommand
+</span></span><span style="display:flex;"><span>We can use first argument with <span style="color:#ed9d13">&#39;hello&#39;</span>
+</span></span><span style="display:flex;"><span>The second argument is <span style="color:#ed9d13">&#39;world&#39;</span>, and so on
+</span></span></code></pre></div><p>Command who doesn&rsquo;t exist:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ my-script hello
+</span></span><span style="display:flex;"><span>Error: <span style="color:#ed9d13">&#39;hello&#39;</span> is not a known subcommand.
+</span></span><span style="display:flex;"><span>       Run <span style="color:#ed9d13">&#39;my-script --help&#39;</span> <span style="color:#6ab825;font-weight:bold">for</span> a list of known subcommands.
+</span></span></code></pre></div>
         </div>
         
 
@@ -335,10 +335,7 @@ Error: &#39;hello&#39; is not a known subcommand.
     
 
     
-        
-
-
-    
+         
 
 
 <script src="https://utteranc.es/client.js"
@@ -348,13 +345,7 @@ Error: &#39;hello&#39; is not a known subcommand.
         issue-term="pathname"
         crossorigin="anonymous"
         async>
-</script>
-
-
-
-
-
-
+</script> 
     
 
         </main>
