@@ -9,13 +9,13 @@ favorite: false
 #   - tag1
 ---
 
-Shell scripts are awesome, [as we know](https://leonh.fr/help-message-for-shell-scripts/). Now, we have nice shell scripts that self document. But if you're anything like me, then you have lots of them in your `~/bin` or wherever you put them. One reason for that is that each script can do one thing and one thing only. Wouldn't it be nice if we could group different functionalities in the same files?
+Shell scripts are awesome, [as we know](https://leonh.fr/help-message-for-shell-scripts/). Now, we have nice shell scripts that self document. But if you're anything like me, then you have lots of them in your `~/bin` or wherever you put them. One reason for that is that each script can do one thing and one thing only. Wouldn't it be nice if we could group different functionalities in the same file?
 
 <!--more-->
 
 Some CLIs already do that with subcommands. Think `git add` or `go get`. We're going to check how to simply have subcommands with shell scripts.
 
-First, we put each functionality in its own function. Each function should have the prefix `sub_`. Of course, we have the documentation at the top and a help function to parse and print it. Note that each function also has a comment.
+First, we put each functionality in its own function. Each function should be prefixed `sub_`. Of course, we have the documentation at the top and a help function to parse and print it. Note that each function also has a comment.
 
 ```sh
 #!/bin/bash
@@ -83,7 +83,7 @@ Now the cool thing about this is that not only can we add as many subcommands as
 
 Printing the help:
 
-```
+```sh
 $ my-script --help
 my-script — does several things well
 
@@ -100,7 +100,7 @@ bar: do the bar thing, which is related but different to the foo thing
 
 Running the bar subcommand:
 
-```
+```sh
 $ my-script bar hello world
 Running the bar subcommand
 We can use first argument with 'hello'
@@ -109,7 +109,7 @@ The second argument is 'world', and so on
 
 Command who doesn't exist:
 
-```
+```sh
 $ my-script hello
 Error: 'hello' is not a known subcommand.
        Run 'my-script --help' for a list of known subcommands.
