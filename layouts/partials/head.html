@@ -68,6 +68,6 @@
 <meta property="article:tag" content="">
 <meta property="article:publisher" content="https://www.facebook.com/XXX"> -->
 
-{{ if and (.Site.GoogleAnalytics) (hugo.IsProduction) }}
-    {{ template "_internal/google_analytics.html" . }}
+{{ if and (.Site.Params.umamiId) (.Site.Params.umamiSrc) (hugo.IsProduction) }}
+  <script async defer data-website-id="{{ .Site.Params.umamiId }}" src="{{ .Site.Params.umamiSrc }}"></script>
 {{ end }}
