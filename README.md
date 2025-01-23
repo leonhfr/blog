@@ -14,5 +14,4 @@ This blog uses Github features extensively:
 
 - [ ] Tags with space do not work (404 error)
 - [ ] Update color scheme to the [Nord palette](https://github.com/arcticicestudio/nord)
-- [ ] Add [tinysearch](https://github.com/tinysearch/tinysearch) support, or [DIY](https://dawchihliou.github.io/articles/i-built-a-snappy-full-text-search-with-webassembly-rust-nextjs-and-xor-filters), with [UI](https://themes.gohugo.io/themes/hugo-theme-monochrome/)
 - [ ] Add [umami](https://github.com/umami-software/umami) or [plausible](https://github.com/plausible/analytics) and self host backend

@@ -43,6 +43,8 @@
     {{ partial "resource.html" (dict "context" . "type" "js" "filename" "js/copy-code.js") }}
 {{ end }}
 
+{{ partial "resource.html" (dict "context" $ "type" "js" "filename" "js/search.js" ) }}
+
 {{ range .Site.Params.customJS -}}
   {{ partial "resource.html" (dict "context" $ "type" "js" "filename" . ) }}
 {{- end }}
