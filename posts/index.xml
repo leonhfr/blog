@@ -6,68 +6,10 @@
     <description>leon h (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://leonh.fr/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Interrupting scanning in Go</title>
-      <link>https://leonh.fr/interrupting-scanning-in-go/</link>
-      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://leonh.fr/interrupting-scanning-in-go/</guid>
-      <description>&lt;p&gt;&lt;code&gt;bufio.Scanner&lt;/code&gt; is &amp;ldquo;a convenient interface for reading data such as a file of newline-delimited lines of text&amp;rdquo;. It will stop scanning either by reaching the end of the input or an error. The usual pattern goes.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://henvic.dev/posts/signal-notify-context/&#34;&gt;https://henvic.dev/posts/signal-notify-context/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://pkg.go.dev/os/signal&#34;&gt;https://pkg.go.dev/os/signal&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://medium.com/golangspec/in-depth-introduction-to-bufio-scanner-in-golang-55483bb689b4&#34;&gt;https://medium.com/golangspec/in-depth-introduction-to-bufio-scanner-in-golang-55483bb689b4&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/37079639/how-we-can-stop-bufio-scanning-at-golang&#34;&gt;https://stackoverflow.com/questions/37079639/how-we-can-stop-bufio-scanning-at-golang&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#447fcf&#34;&gt;main&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ctx, stop := signal.&lt;span style=&#34;color:#447fcf&#34;&gt;NotifyContext&lt;/span&gt;(context.&lt;span style=&#34;color:#447fcf&#34;&gt;Background&lt;/span&gt;(), os.Interrupt)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;defer&lt;/span&gt; &lt;span style=&#34;color:#447fcf&#34;&gt;stop&lt;/span&gt;()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ctx = context.&lt;span style=&#34;color:#447fcf&#34;&gt;WithValue&lt;/span&gt;(ctx, cmd.NameKey, name)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ctx = context.&lt;span style=&#34;color:#447fcf&#34;&gt;WithValue&lt;/span&gt;(ctx, cmd.VersionKey, version)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ctx = context.&lt;span style=&#34;color:#447fcf&#34;&gt;WithValue&lt;/span&gt;(ctx, cmd.AuthorKey, author)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;if&lt;/span&gt; err := cmd.&lt;span style=&#34;color:#447fcf&#34;&gt;Execute&lt;/span&gt;(ctx); err != &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;nil&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		log.&lt;span style=&#34;color:#447fcf&#34;&gt;Fatalf&lt;/span&gt;(&lt;span style=&#34;color:#ed9d13&#34;&gt;&amp;#34;honeybadger: %v&amp;#34;&lt;/span&gt;, err)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		uciOut := os.Stdout
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		uciIn, pipe := io.&lt;span style=&#34;color:#447fcf&#34;&gt;Pipe&lt;/span&gt;()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// graceful shutdown when context canceled
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// sending EOF to the UCI scanner by closing the pipe
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;go&lt;/span&gt; &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;func&lt;/span&gt;() { _, _ = io.&lt;span style=&#34;color:#447fcf&#34;&gt;Copy&lt;/span&gt;(pipe, os.Stdin) }()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;go&lt;/span&gt; &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;func&lt;/span&gt;() { &amp;lt;-ctx.&lt;span style=&#34;color:#447fcf&#34;&gt;Done&lt;/span&gt;(); pipe.&lt;span style=&#34;color:#447fcf&#34;&gt;Close&lt;/span&gt;() }()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		e := engine.&lt;span style=&#34;color:#447fcf&#34;&gt;New&lt;/span&gt;(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			engine.&lt;span style=&#34;color:#447fcf&#34;&gt;WithName&lt;/span&gt;(fmt.&lt;span style=&#34;color:#447fcf&#34;&gt;Sprintf&lt;/span&gt;(&lt;span style=&#34;color:#ed9d13&#34;&gt;&amp;#34;%s v%s&amp;#34;&lt;/span&gt;, name, version)),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			engine.&lt;span style=&#34;color:#447fcf&#34;&gt;WithAuthor&lt;/span&gt;(author),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			engine.&lt;span style=&#34;color:#447fcf&#34;&gt;WithLogger&lt;/span&gt;(uci.&lt;span style=&#34;color:#447fcf&#34;&gt;Logger&lt;/span&gt;(uciOut)),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		uci.&lt;span style=&#34;color:#447fcf&#34;&gt;Run&lt;/span&gt;(ctx, e, uciIn, uciOut)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// uci
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#447fcf&#34;&gt;Run&lt;/span&gt;(ctx context.Context, e Engine, r io.Reader, w io.Writer) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	respond := &lt;span style=&#34;color:#447fcf&#34;&gt;newResponder&lt;/span&gt;(w)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;for&lt;/span&gt; scanner := bufio.&lt;span style=&#34;color:#447fcf&#34;&gt;NewScanner&lt;/span&gt;(r); scanner.&lt;span style=&#34;color:#447fcf&#34;&gt;Scan&lt;/span&gt;(); {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		c := &lt;span style=&#34;color:#447fcf&#34;&gt;parse&lt;/span&gt;(strings.&lt;span style=&#34;color:#447fcf&#34;&gt;Fields&lt;/span&gt;(scanner.&lt;span style=&#34;color:#447fcf&#34;&gt;Text&lt;/span&gt;()))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;if&lt;/span&gt; c == &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;nil&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;continue&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		c.&lt;span style=&#34;color:#447fcf&#34;&gt;run&lt;/span&gt;(ctx, e, respond)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;if&lt;/span&gt; _, ok := c.(commandQuit); ok {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;break&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
     
     <item>
       <title>Simple shell script subcommands</title>
@@ -79,7 +21,7 @@
 &lt;p&gt;Some CLIs already do that with subcommands. Think &lt;code&gt;git add&lt;/code&gt; or &lt;code&gt;go get&lt;/code&gt;. We&amp;rsquo;re going to check how to simply have subcommands with shell scripts.&lt;/p&gt;
 &lt;p&gt;First, we put each functionality in its own function. Each function should be prefixed &lt;code&gt;sub_&lt;/code&gt;. Of course, we have the documentation at the top and a help function to parse and print it. Note that each function also has a comment.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cd2828;font-weight:bold&#34;&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cd2828;font-weight:bold&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;###&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;###&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;### my-script — does several things well&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;###&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;### Usage: my-script [options] &amp;lt;subcommand&amp;gt;&lt;/span&gt;
@@ -172,7 +114,7 @@
 &lt;p&gt;We could, of course, implement it with a bunch of echo calls. But there&amp;rsquo;s a neat trick. I originally learned it in a blog post by &lt;a href=&#34;https://github.com/kovetskiy&#34;&gt;Egor Kovetskiy&lt;/a&gt;, but it seems it&amp;rsquo;s not available anymore. As it was very useful to me, I&amp;rsquo;m putting it out there again.&lt;/p&gt;
 &lt;p&gt;Add your help message as comments at the top of your file, right after the shebang.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cd2828;font-weight:bold&#34;&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cd2828;font-weight:bold&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;###&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;###&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;### my-script — does one thing well&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;###&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;### Usage:&lt;/span&gt;
