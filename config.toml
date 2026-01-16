@@ -1,87 +1,86 @@
 baseURL = "https://leonh.fr"
 languageCode = "en-us"
 title = "leon h"
-paginate = 5
 
-[author]
-  name = "Leon Hollender"
+[pagination]
+pagerSize = 5
 
 [params]
-  author = "Leon Hollender"
-  description = "The blog of an architect (as in, buildings) turned software engineer."
-  copyright = "Say hi: <a href=\"mailto:hello@leonh.fr\" rel=\"me\">hello@leonh.fr</a><br />All content is published under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a> license."
-  dateFormat = "Jan 02, 2006"
-  style = "dark-without-switcher"
-  paginationSinglePost = true
-  readMore = false
-  copyCodeButton = true
-  rssAsSocialIcon = true
+author = "Leon Hollender"
+description = "The blog of an architect (as in, buildings) turned software engineer."
+copyright = "Say hi: <a href=\"mailto:hello@leonh.fr\" rel=\"me\">hello@leonh.fr</a><br />All content is published under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a> license."
+dateFormat = "Jan 02, 2006"
+style = "dark-without-switcher"
+paginationSinglePost = true
+readMore = false
+copyCodeButton = true
+rssAsSocialIcon = true
 
-  utterancesRepo = "leonhfr/blog"
-  utterancesTheme = "github-dark"
-  utterancesIssue = "pathname"
+utterancesRepo = "leonhfr/blog"
+utterancesTheme = "github-dark"
+utterancesIssue = "pathname"
 
-  umamiId = "f9a943bd-0bea-4967-b412-dde5a177f799"
-  umamiSrc = "https://umami-gbw2hc98w-leonhfr.vercel.app/umami.js"
+umamiId = "f9a943bd-0bea-4967-b412-dde5a177f799"
+umamiSrc = "https://umami-gbw2hc98w-leonhfr.vercel.app/umami.js"
 
 [params.webmentions]
-  login = "leonh.fr"
-  pingback = true
+login = "leonh.fr"
+pingback = true
 
 [permalinks]
-  posts = "/:title/"
+posts = "/:title/"
 
 [outputs]
-    home = ["html", "rss", "json"]
+home = ["html", "rss", "json"]
 
 # [[params.social]]
 # id = "docs"
 # url = "https://gohugo.io/documentation/"
 
 [[params.social]]
-  id = "github"
-  url = "https://github.com/leonhfr"
+id = "github"
+url = "https://github.com/leonhfr"
 
 [[params.social]]
-  id = "linkedin"
-  url = "https://www.linkedin.com/in/leonhollender"
+id = "linkedin"
+url = "https://www.linkedin.com/in/leonhollender"
 
 [menu]
-  [[menu.main]]
-    identifier = "about"
-    name = "about"
-    url = "/about/"
-    weight = 1
+[[menu.main]]
+identifier = "about"
+name = "about"
+url = "/about/"
+weight = 1
 
-  # [[menu.main]]
-  #   identifier = "tags"
-  #   name = "tags"
-  #   url = "/tags/"
-  #   weight = 2
+# [[menu.main]]
+#   identifier = "tags"
+#   name = "tags"
+#   url = "/tags/"
+#   weight = 2
 
-  [[menu.main]]
-    identifier = "archive"
-    name = "archive"
-    url = "/posts/"
-    weight = 3
+[[menu.main]]
+identifier = "archive"
+name = "archive"
+url = "/posts/"
+weight = 3
 
 [taxonomies]
-  category = "categories"
-  tag = "tags"
+category = "categories"
+tag = "tags"
 
 [markup.goldmark.renderer]
-  unsafe = true
+unsafe = true
 
 pygmentsUseClasses = false
 pygmentsCodefences = true
 
 [markup.highlight]
-  codeFences = true
-  guessSyntax = false
-  hl_Lines = ""
-  lineNoStart = 1
-  lineNos = false
-  lineNumbersInTable = true
-  noClasses = true
-  tabWidth = 2
-  style = "native"
+codeFences = true
+guessSyntax = false
+hl_Lines = ""
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = true
+noClasses = true
+tabWidth = 2
+style = "native"

@@ -3,7 +3,7 @@ title: Interrupting scanning in Go
 description: Description
 date: 2022-10-15
 author: leon h
-draft: false
+draft: true
 favorite: false
 # tags:
 #   - tag1
