@@ -62,6 +62,6 @@
     {{ end }}
 {{ end }}
 
-{{ if and (.Site.Params.umamiId) (.Site.Params.umamiSrc) (hugo.IsProduction) }}
+{{ if and (.Site.Params.umamiId) (hugo.IsProduction) }}
   <script defer data-website-id="{{ .Site.Params.umamiId }}" src="https://cloud.umami.is/script.js"></script>
 {{ end }}
