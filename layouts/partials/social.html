@@ -1,11 +1,5 @@
 <ul class="social-icons">
 
-    <li>
-        <span id="search_btn" title="Search">
-            {{ partial "font-awesome.html" (dict "iconName" "search" "custom" false) }}
-        </span>
-    </li>
-
 {{ range $.Site.Params.Social }}
     {{ if and (isset $.Site.Data.social.social_icons .id) (isset . "url") }}
         <li>
@@ -41,5 +35,3 @@
 {{ end }}
 
 </ul>
-
-{{ partial "search.html" . }}

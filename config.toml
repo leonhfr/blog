@@ -20,8 +20,7 @@ utterancesRepo = "leonhfr/blog"
 utterancesTheme = "github-dark"
 utterancesIssue = "pathname"
 
-umamiId = "f9a943bd-0bea-4967-b412-dde5a177f799"
-umamiSrc = "https://umami-gbw2hc98w-leonhfr.vercel.app/umami.js"
+umamiId = "a8946b2c-9fa8-4520-a0f0-8debfbe43f0a"
 
 [params.webmentions]
 login = "leonh.fr"
@@ -32,10 +31,6 @@ posts = "/:title/"
 
 [outputs]
 home = ["html", "rss", "json"]
-
-# [[params.social]]
-# id = "docs"
-# url = "https://gohugo.io/documentation/"
 
 [[params.social]]
 id = "github"
@@ -71,9 +66,6 @@ tag = "tags"
 [markup.goldmark.renderer]
 unsafe = true
 
-pygmentsUseClasses = false
-pygmentsCodefences = true
-
 [markup.highlight]
 codeFences = true
 guessSyntax = false
@@ -83,4 +75,4 @@ lineNos = false
 lineNumbersInTable = true
 noClasses = true
 tabWidth = 2
-style = "native"
+style = "github-dark"

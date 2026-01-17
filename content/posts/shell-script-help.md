@@ -3,7 +3,7 @@ title: Help message for shell scripts
 description: Description
 date: 2022-02-16
 author: leon h
-draft: false
+draft: true
 favorite: false
 # tags:
 #   - tag1

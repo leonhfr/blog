@@ -14,4 +14,3 @@ This blog uses Github features extensively:
 
 - [ ] Tags with space do not work (404 error)
 - [ ] Update color scheme to the [Nord palette](https://github.com/arcticicestudio/nord)
-- [ ] Add [umami](https://github.com/umami-software/umami) or [plausible](https://github.com/plausible/analytics) and self host backend

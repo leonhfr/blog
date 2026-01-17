@@ -3,7 +3,7 @@ title: Simple shell script subcommands
 description: Description
 date: 2022-10-01
 author: leon h
-draft: false
+draft: true
 favorite: false
 # tags:
 #   - tag1
