@@ -149,11 +149,22 @@ pre {
     overflow: auto;
 }
 
+pre {
+    color: var(--pre-color);
+    background-color: var(--pre-bg-color);
+}
+
+code,
+kbd {
+    color: var(--code-color);
+    background-color: var(--code-bg-color);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+}
+
 code,
 pre,
 kbd {
-    color: var(--pre-color);
-    background-color: var(--pre-bg-color);
     font-family: monospace;
     font-size: 0.90em;
     line-height: 154%;
@@ -162,6 +173,11 @@ kbd {
 pre code, pre kbd {
     color: inherit;
     background-color: inherit;
+    padding: 0;
+}
+
+a code {
+    color: inherit;
 }
 
 /* Styles */
