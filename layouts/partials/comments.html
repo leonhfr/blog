@@ -1,0 +1,6 @@
+{{ $theme := .Site.Params.Utterances.Theme | default "github-light" }}
+{{ $label := .Site.Params.Utterances.Label | default "" }}
+{{ $issue := .Site.Params.Utterances.Issue | default "url" }}
+<script src="https://utteranc.es/client.js" repo="{{- .Site.Params.Utterances.Repo -}}" theme="{{ $theme }}"
+  label="{{ $label }}" issue-term="{{ $issue }}" crossorigin="anonymous" async>
+  </script>

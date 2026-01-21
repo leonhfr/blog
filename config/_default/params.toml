@@ -1,0 +1,76 @@
+colorScheme = "sapphire"
+defaultAppearance = "dark"
+autoSwitchAppearance = false
+
+defaultThemeColor = "#FFFFFF"
+
+enableSearch = false
+enableCodeCopy = true
+enableImageLazyLoading = true
+enableImageWebp = true
+
+# robots = ""
+fingerprintAlgorithm = "sha256"
+
+[header]
+layout = "basic"
+# logo = "img/logo.jpg"
+# logoDark = "img/dark-logo.jpg"
+showTitle = true
+
+[footer]
+showCopyright = true
+showThemeAttribution = false
+showAppearanceSwitcher = false
+showScrollToTop = true
+
+[homepage]
+layout = "profile"
+showRecent = true
+recentLimit = 5
+
+[article]
+showDate = true
+showDateUpdated = false
+showAuthor = true
+showBreadcrumbs = false
+showDraftLabel = true
+showEdit = false
+# editURL = "https://github.com/leonhfr/blog/"
+editAppendPath = true
+showHeadingAnchors = true
+showPagination = true
+invertPagination = false
+showReadingTime = true
+showTableOfContents = false
+showTaxonomies = false
+showWordCount = false
+showComments = true
+sharingLinks = false
+
+[list]
+showBreadcrumbs = false
+showSummary = false
+showTableOfContents = false
+showTaxonomies = false
+groupByYear = true
+paginationWidth = 1
+
+[sitemap]
+excludedKinds = ["taxonomy", "term"]
+
+[taxonomy]
+showTermCount = true
+
+[umamiAnalytics]
+site = "a8946b2c-9fa8-4520-a0f0-8debfbe43f0a"
+region = "eu"
+
+[verification]
+# google = ""
+
+[utterances]
+repo = "leonhfr/blog"
+theme = "photon-dark"
+# theme = "dark-blue"
+issue = "pathname"
