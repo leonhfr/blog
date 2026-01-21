@@ -1,34 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>leon h</title>
-    <link>https://leonh.fr/</link>
-    <description>leon h</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
-    
-    <atom:link href="https://leonh.fr/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>About</title>
-      <link>https://leonh.fr/about/</link>
-      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://leonh.fr/about/</guid>
-      <description>&lt;p&gt;I am a former architect (as in, buildings) turned software engineer. I&amp;rsquo;m currently working at &lt;a href=&#34;https://www.re-cap.com/&#34;&gt;re:cap&lt;/a&gt; and was previously working at &lt;a href=&#34;https://www.usertesting.com/&#34;&gt;UserTesting&lt;/a&gt; and &lt;a href=&#34;https://www.adsecure.com/&#34;&gt;AdSecure&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Github: &lt;a href=&#34;https://github.com/leonhfr&#34;&gt;leonhfr&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hello, friend</title>
-      <link>https://leonh.fr/hello-friend/</link>
-      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://leonh.fr/hello-friend/</guid>
-      <description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Welcome to Congo! :tada: on léon h</title><link>https://leonh.fr/</link><description>Recent content in Welcome to Congo! :tada: on léon h</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://leonh.fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello, friend</title><link>https://leonh.fr/posts/hello-friend/</link><pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><guid>https://leonh.fr/posts/hello-friend/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;Hello, friend?&amp;rdquo; That&amp;rsquo;s lame.
 Maybe I should give you a name&amp;hellip;
 But that&amp;rsquo;s a slippery slope.
@@ -38,16 +8,4 @@ Shit.
 It&amp;rsquo;s actually happened.
 I&amp;rsquo;m talking to an imaginary person.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;— Mr. Robot S01E01&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This is the start of yet another developer blog. It&amp;rsquo;s been a long time coming as I have always wanted to have a blog but I have been postponing it.&lt;/p&gt;
-&lt;p&gt;Powered by &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; with theme &lt;a href=&#34;https://github.com/Mitrichius/hugo-theme-anubis&#34;&gt;Anubis&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This blog uses Github features extensively:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Github Pages for hosting&lt;/li&gt;
-&lt;li&gt;Github Actions for deployment&lt;/li&gt;
-&lt;li&gt;Github issues for comments (via &lt;a href=&#34;https://utteranc.es/&#34;&gt;utteranc.es&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/blockquote&gt;</description></item></channel></rss>

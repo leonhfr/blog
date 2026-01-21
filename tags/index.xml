@@ -1,14 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on leon h</title>
-    <link>https://leonh.fr/tags/</link>
-    <description>leon h (Tags)</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-    <atom:link href="https://leonh.fr/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on léon h</title><link>https://leonh.fr/tags/</link><description>Recent content in Tags on léon h</description><generator>Hugo</generator><language>en</language><atom:link href="https://leonh.fr/tags/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
