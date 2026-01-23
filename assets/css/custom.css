@@ -2,3 +2,19 @@
   font-size: 0.75rem;
   line-height: 1rem;
 }
+
+.prose :where(code):not(:where([class~=not-prose],[class~=not-prose] *))::before {
+  content: "";
+ }
+
+.prose :where(code):not(:where([class~=not-prose],[class~=not-prose] *))::after {
+  content: "";
+}
+
+.prose :where(blockquote p:first-of-type):not(:where([class~=not-prose],[class~=not-prose] *))::before {
+  content: "";
+}
+
+.prose :where(blockquote p:last-of-type):not(:where([class~=not-prose],[class~=not-prose] *))::after {
+  content: "";
+}

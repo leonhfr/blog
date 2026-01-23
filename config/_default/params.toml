@@ -1,4 +1,4 @@
-colorScheme = "sapphire"
+colorScheme = "custom"
 defaultAppearance = "dark"
 autoSwitchAppearance = false
 
@@ -27,7 +27,7 @@ showScrollToTop = true
 [homepage]
 layout = "profile"
 showRecent = true
-recentLimit = 5
+recentLimit = 1
 
 [article]
 showDate = true
@@ -50,7 +50,7 @@ sharingLinks = false
 
 [list]
 showBreadcrumbs = false
-showSummary = false
+showSummary = true
 showTableOfContents = false
 showTaxonomies = false
 groupByYear = true
@@ -72,5 +72,4 @@ region = "eu"
 [utterances]
 repo = "leonhfr/blog"
 theme = "photon-dark"
-# theme = "dark-blue"
 issue = "pathname"

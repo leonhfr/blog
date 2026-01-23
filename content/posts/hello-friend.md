@@ -4,9 +4,6 @@ description: Hello, friend? That's lame. Maybe I should give you a name?
 date: 2021-01-01
 author: leon h
 draft: false
-favorite: false
-# tags:
-#   - mrrobot
 ---
 
 > "Hello, friend?" That's lame.
@@ -18,7 +15,7 @@ favorite: false
 > It's actually happened.
 > I'm talking to an imaginary person.
 >
-> **— Mr. Robot S01E01**
+> **-- Mr. Robot S01E01**
 
 <!--more-->
 
