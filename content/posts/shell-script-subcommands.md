@@ -1,21 +1,20 @@
 ---
 title: Simple shell script subcommands
-description: Description
+description: How to add git-style subcommands to shell scripts with self-documenting help messages.
 date: 2022-10-01
-author: leon h
-draft: true
-favorite: false
-# tags:
-#   - tag1
+draft: false
+tags:
+  - shell
+  - bash
 ---
 
-Shell scripts are awesome, [as we know](https://leonh.fr/help-message-for-shell-scripts/). Now, we have nice shell scripts that self document. But if you're anything like me, then you have lots of them in your `~/bin` or wherever you put them. One reason for that is that each script can do one thing and one thing only. Wouldn't it be nice if we could group different functionalities in the same file?
+Shell scripts are awesome, [as we know](https://leonh.fr/help-message-for-shell-scripts/). Now, we have nice shell scripts that self document. But if you're anything like me, you have lots of them in your `~/bin` or wherever you put them. One reason is that each script can do one thing and one thing only. Wouldn't it be nice if we could group different functionalities in the same file?
 
 <!--more-->
 
 Some CLIs already do that with subcommands. Think `git add` or `go get`. We're going to check how to simply have subcommands with shell scripts.
 
-First, we put each functionality in its own function. Each function should be prefixed `sub_`. Of course, we have the documentation at the top and a help function to parse and print it. Note that each function also has a comment.
+First, we put each functionality in its own function. Each function should be prefixed `sub_`. Of course, we have the documentation at the top and a help function to parse and print the documentation. Note that each function also has a comment.
 
 ```sh
 #!/bin/bash
@@ -73,7 +72,7 @@ What's happening here? Some notes:
 
 - we store the name of the script with `basename`;
 - we use a bash [case statement](https://linuxize.com/post/bash-case-statement/);
-- we check the first argument, the subcommand, if it's one of `-h`, `--help` or an empty string, we print the help and exit;
+- we check the first argument, the subcommand, if it's one of `-h`, `--help`, or empty, we print the help and exit;
 - otherwise (see the `*)` which is the default case), we:
   - use the `shift` command to shift positional parameters to the left, so command name which was in `$1` is placed at `$0` instead, and so on for other arguments;
   - we execute the subcommand function with the repositioned arguments `$@`;
@@ -94,7 +93,7 @@ Options:
 
 Subcommands:
 help: show this message
-foo: do some the foo thing
+foo: do the foo thing
 bar: do the bar thing, which is related but different to the foo thing
 ```
 
@@ -107,7 +106,7 @@ We can use first argument with 'hello'
 The second argument is 'world', and so on
 ```
 
-Command who doesn't exist:
+Command that doesn't exist:
 
 ```sh
 $ my-script hello

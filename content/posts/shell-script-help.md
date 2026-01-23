@@ -1,19 +1,18 @@
 ---
 title: Help message for shell scripts
-description: Description
+description: A simple trick to add self-documenting help messages to your shell scripts using sed.
 date: 2022-02-16
-author: leon h
-draft: true
-favorite: false
-# tags:
-#   - tag1
+draft: false
+tags:
+  - shell
+  - bash
 ---
 
-Shell scripts are awesome. They are so useful to automate repetitive and boring work. The hardest thing about them is documentation though. How often have you written one, put it in the `bin` directory and forgot all about it? How cool would it be to have a help message for them?
+Shell scripts are awesome. They are so useful to automate repetitive and boring work. The hardest thing about them, though, is documentation. How often have you written one, put it in the `bin` directory and forgotten all about it? How cool would it be to have a help message for them?
 
 <!--more-->
 
-We could, of course, implement it with a bunch of echo calls. But there's a neat trick. I originally learned it in a blog post by [Egor Kovetskiy](https://github.com/kovetskiy), but it seems it's not available anymore. As it was very useful to me, I'm putting it out there again.
+We could, of course, implement it with a bunch of echo calls. But there's a neat trick. I originally learned this trick in a blog post by [Egor Kovetskiy](https://github.com/kovetskiy), but the post seems to be gone. As it was very useful to me, I'm putting it out there again.
 
 Add your help message as comments at the top of your file, right after the shebang.
 
@@ -48,7 +47,7 @@ What's happening here:
 - `//` defines the substitution string, here an empty string;
 - `p` prints the result of the substitution.
 
-Now, we just need to call this if an `-h` argument or no arguments are passed.
+Now, we just need to call this if `-h` is passed or no arguments are given.
 
 ```sh
 if [[ $# == 0 ]] || [[ "$1" == "-h" ]]; then
