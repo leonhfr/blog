@@ -8,7 +8,7 @@ tags:
   - bash
 ---
 
-Shell scripts are awesome, [as we know](https://leonh.fr/help-message-for-shell-scripts/). Now, we have nice shell scripts that self document. But if you're anything like me, you have lots of them in your `~/bin` or wherever you put them. One reason is that each script can do one thing and one thing only. Wouldn't it be nice if we could group different functionalities in the same file?
+Shell scripts are awesome, [as we know](./shell-script-help.md). Now, we have nice shell scripts that self document. But if you're anything like me, you have lots of them in your `~/bin` or wherever you put them. One reason is that each script can do one thing and one thing only. Wouldn't it be nice if we could group different functionalities in the same file?
 
 <!--more-->
 
