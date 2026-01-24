@@ -68,26 +68,8 @@
     <div class="text-sm text-neutral-500 dark:text-neutral-400">
       {{ partial "article-meta.html" . }}
     </div>
-    {{ $showSummary := .Site.Params.list.showSummary | default false }}
-    {{ $section := .CurrentSection }}
-    {{ with $section.Params.showSummary }}
-      {{ $showSummary = . }}
-    {{ else }}
-      {{ if eq $section.Params.showSummary false }}
-        {{ $showSummary = false }}
-      {{ end }}
-    {{ end }}
-    {{ with .Params.showSummary }}
-      {{ $showSummary = . }}
-    {{ else }}
-      {{ if eq .Params.showSummary false }}
-        {{ $showSummary = false }}
-      {{ end }}
-    {{ end }}
-    {{ if $showSummary }}
-      <div class="prose py-1 dark:prose-invert">
-        {{ .Summary | emojify }}
-      </div>
-    {{ end }}
+    <div class="prose py-1 dark:prose-invert">
+      {{ .Summary | emojify }}
+    </div>
   </div>
 </article>

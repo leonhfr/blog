@@ -20,12 +20,12 @@ showTitle = true
 
 [footer]
 showCopyright = true
-showThemeAttribution = false
+showThemeAttribution = true
 showAppearanceSwitcher = false
 showScrollToTop = true
 
 [homepage]
-layout = "profile"
+layout = "custom"
 showRecent = true
 recentLimit = 1
 
@@ -50,7 +50,7 @@ sharingLinks = false
 
 [list]
 showBreadcrumbs = false
-showSummary = true
+showSummary = false
 showTableOfContents = false
 showTaxonomies = false
 groupByYear = true
