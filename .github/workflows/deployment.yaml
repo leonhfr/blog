@@ -30,3 +30,15 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./public
+
+      - name: Refresh Profile README
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PERSONAL_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'leonhfr',
+              repo: 'leonhfr',
+              workflow_id: 'blog.yml',
+              ref: 'master'
+            })
