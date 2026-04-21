@@ -4,7 +4,7 @@ languageDirection = "ltr"
 weight = 1
 
 title = "léon h"
-copyright = "&copy; 2022&ndash;2026 léon h, licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)"
+copyright = "Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)"
 
 [params]
 dateFormat = "2 January 2006"
