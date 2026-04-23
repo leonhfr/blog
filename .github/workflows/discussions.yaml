@@ -1,0 +1,24 @@
+name: Discussions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  discussions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch discussions
+        uses: leonhfr/discussions-action@release
+        with:
+          domain_name: leonh.fr
+          target_dir: /data
+
+      - name: Update discussions
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update discussions'
