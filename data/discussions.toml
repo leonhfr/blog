@@ -9,15 +9,6 @@ score = 53
 
 [[discussions]]
 title = "I shipped a transaction bug, so I built a linter"
-url = "https://leonh.fr/posts/go-transaction-linter/"
-blog_rel_url = "/posts/go-transaction-linter/"
-forum = "hackernews"
-timestamp = 1775811665
-comment_count = 12
-score = 53
-
-[[discussions]]
-title = "I shipped a transaction bug, so I built a linter"
 url = "https://www.reddit.com/r/golang/comments/1qp93bs/i_shipped_a_transaction_bug_so_i_built_a_linter/"
 blog_rel_url = "/posts/go-transaction-linter/"
 forum = "reddit"
