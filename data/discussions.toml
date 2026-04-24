@@ -1,6 +1,6 @@
 [[discussions]]
 title = "I shipped a transaction bug, so I built a linter"
-url = "https://leonh.fr/posts/go-transaction-linter/"
+url = "https://news.ycombinator.com/item?id=47715389"
 blog_rel_url = "/posts/go-transaction-linter/"
 forum = "hackernews"
 timestamp = 1775811665
