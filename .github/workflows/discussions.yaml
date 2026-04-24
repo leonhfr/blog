@@ -20,6 +20,20 @@ jobs:
           target_dir: /data
 
       - name: Update discussions
+        id: auto-commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'Update discussions'
+
+      - name: Trigger deployment
+        if: steps.auto-commit.outputs.changes_detected == 'true'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PERSONAL_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deployment.yaml',
+              ref: 'master'
+            })
