@@ -1,2 +1,12 @@
+sharing:
+  email: "Email"
+  linkedin: "LinkedIn"
+  mastodon: "Mastodon"
+  reddit: "Reddit"
+  twitter: "Twitter"
+  x-twitter: "X/Twitter"
+  hackernews: "Hacker News"
+  lobsters: "Lobsters"
+
 shortcode:
   recent_article: "Recent article"

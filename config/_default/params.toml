@@ -32,7 +32,7 @@ recentLimit = 1
 [article]
 showDate = true
 showDateUpdated = false
-showAuthor = true
+showAuthor = false
 showBreadcrumbs = false
 showDraftLabel = true
 showEdit = false
@@ -46,7 +46,7 @@ showTableOfContents = false
 showTaxonomies = false
 showWordCount = false
 showComments = true
-sharingLinks = false
+sharingLinks = ["hackernews", "lobsters", "reddit", "x-twitter"]
 
 [list]
 showBreadcrumbs = false

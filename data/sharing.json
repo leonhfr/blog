@@ -1,0 +1,42 @@
+{
+  "email": {
+    "icon": "email",
+    "title": "sharing.email",
+    "url": "mailto:?body=%s&subject=%s"
+  },
+  "linkedin": {
+    "icon": "linkedin",
+    "title": "sharing.linkedin",
+    "url": "https://www.linkedin.com/shareArticle?mini=true&url=%s&title=%s"
+  },
+  "mastodon": {
+    "icon": "mastodon",
+    "title": "sharing.mastodon",
+    "url": "https://tootpick.org/#text=%s %s"
+  },
+  "reddit": {
+    "icon": "reddit",
+    "title": "sharing.reddit",
+    "url": "https://reddit.com/submit/?url=%s&resubmit=true&title=%s"
+  },
+  "twitter": {
+    "icon": "twitter",
+    "title": "sharing.twitter",
+    "url": "https://twitter.com/intent/tweet/?url=%s&text=%s"
+  },
+  "x-twitter": {
+    "icon": "x-twitter",
+    "title": "sharing.x-twitter",
+    "url": "https://x.com/intent/tweet/?url=%s&text=%s"
+  },
+  "hackernews": {
+    "icon": "hackernews",
+    "title": "sharing.hackernews",
+    "url": "https://news.ycombinator.com/submitlink?u=%s&t=%s"
+  },
+  "lobsters": {
+    "icon": "lobsters",
+    "title": "sharing.lobsters",
+    "url": "https://lobste.rs/stories/new?url=%s&title=%s"
+  }
+}

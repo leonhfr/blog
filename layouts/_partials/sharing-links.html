@@ -1,0 +1,36 @@
+{{ with .Params.sharingLinks | default (.Site.Params.article.sharingLinks | default false) }}
+  <section class="prose dark:prose-invert">
+    <h4 class="font-normal text-neutral dark:text-neutral-300">
+      <strong class="text-neutral-800 dark:text-neutral">Share this article</strong> on
+      {{ $links := hugo.Data.sharing }}
+      {{ $keys := . }}
+      {{ $total := len $keys }}
+      {{ range $i, $v := $keys }}
+        {{ with index $links $v }}
+          {{ if gt $i 0 }}{{ if eq $i (sub $total 1) }}, or {{ else }}, {{ end }}{{ end }}<a
+            href="{{ printf .url $.Permalink $.Title }}"
+            title="{{ i18n .title }}"
+            aria-label="{{ i18n .title }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ i18n .title }}</a>
+        {{ end }}
+      {{ end }}
+    </h4>
+
+    {{ with hugo.Data.discussions }}
+      {{ $filtered := where .discussions "blog_rel_url" $.RelPermalink }}
+      {{ with sort $filtered "timestamp" "desc" }}
+        <h4>Previous discussions on:</h4>
+        <ul>
+          {{ range . }}
+          <li class="text-base">
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ i18n (printf "sharing.%s" .forum) }}</a>
+            with {{ .comment_count }} comments on {{ dateFormat $.Site.Language.Params.dateFormat (time.AsTime .timestamp) }}
+          </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{ end }}
+  </section>
+{{ end }}
