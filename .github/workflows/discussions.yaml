@@ -15,6 +15,7 @@ jobs:
       - name: Fetch discussions
         uses: leonhfr/discussions-action@release
         with:
+          apify_token: ${{ secrets.APIFY_TOKEN }}
           domain_name: leonh.fr
           target_dir: /data
 
