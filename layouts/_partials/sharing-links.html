@@ -1,7 +1,8 @@
 {{ with .Params.sharingLinks | default (.Site.Params.article.sharingLinks | default false) }}
-  <section class="prose dark:prose-invert">
+  <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+  <section class="prose dark:prose-invert pt-3">
     <h4 class="font-normal text-neutral dark:text-neutral-300">
-      <strong class="text-neutral-800 dark:text-neutral">Share this article</strong> on
+      Share this article on
       {{ $links := hugo.Data.sharing }}
       {{ $keys := . }}
       {{ $total := len $keys }}
@@ -13,7 +14,7 @@
             aria-label="{{ i18n .title }}"
             target="_blank"
             rel="noopener noreferrer"
-            >{{ i18n .title }}</a>
+            >{{ i18n .title }}</a>{{ if eq $i (sub $total 1) }}.{{ end }}
         {{ end }}
       {{ end }}
     </h4>
@@ -21,7 +22,7 @@
     {{ with hugo.Data.discussions }}
       {{ $filtered := where .discussions "blog_rel_url" $.RelPermalink }}
       {{ with sort $filtered "timestamp" "desc" }}
-        <h4>Previous discussions on:</h4>
+        <h4 class="font-normal text-neutral dark:text-neutral-300">Previous discussions on:</h4>
         <ul>
           {{ range . }}
           <li class="text-base">

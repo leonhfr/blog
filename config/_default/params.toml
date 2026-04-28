@@ -46,7 +46,7 @@ showTableOfContents = false
 showTaxonomies = false
 showWordCount = false
 showComments = true
-sharingLinks = ["hackernews", "lobsters", "reddit", "x-twitter"]
+sharingLinks = ["hackernews", "lobsters", "reddit"]
 
 [list]
 showBreadcrumbs = false

@@ -4,6 +4,7 @@ description: Hello, friend? That's lame. Maybe I should give you a name?
 date: 2021-01-01
 author: leon h
 draft: false
+sharingLinks: false
 ---
 
 > "Hello, friend?" That's lame.
