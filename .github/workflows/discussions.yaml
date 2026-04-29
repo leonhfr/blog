@@ -8,6 +8,9 @@ on:
 jobs:
   discussions:
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,7 +32,7 @@ jobs:
         if: steps.auto-commit.outputs.changes_detected == 'true'
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.PERSONAL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
