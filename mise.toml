@@ -1,0 +1,10 @@
+[tools]
+hugo = "v0.157.0"
+
+[tasks.build]
+description = "Build the Hugo site"
+run = "hugo --minify"
+
+[tasks.serve]
+description = "Start Hugo development server"
+run = "hugo server --buildDrafts"

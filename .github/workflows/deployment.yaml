@@ -10,16 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "latest"
-          extended: true
+      - name: Setup mise
+        uses: jdx/mise-action@v2
 
       - name: Build website
-        run: hugo --minify
+        run: mise run build
         env:
           HUGO_ENV: production
 
