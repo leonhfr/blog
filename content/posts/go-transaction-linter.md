@@ -134,6 +134,7 @@ Now that we can identify repositories, we need to detect transaction calls. In t
 When we find a transaction call, we extract the first parameter of the callback. This is the transaction-scoped parameter, `tx`. We need to verify that all operations within the callback use it, which means tracking it while we traverse the callback's AST.
 
 We capture two things:
+
 - the parameter name (`txParameterName`) for error messages like "should use transaction parameter `tx`",
 - the type object (`txParameterObject`) for identity comparison.
 
