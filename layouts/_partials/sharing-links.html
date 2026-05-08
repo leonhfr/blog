@@ -7,15 +7,15 @@
       {{ $keys := . }}
       {{ $total := len $keys }}
       {{ range $i, $v := $keys }}
-        {{ with index $links $v }}
-          {{ if gt $i 0 }}{{ if eq $i (sub $total 1) }}, or {{ else }}, {{ end }}{{ end }}<a
+        {{- with index $links $v -}}
+          {{ if gt $i 0 }}{{ if eq $i (sub $total 1) }}, or {{ else }}, {{ end }}{{ end -}}<a
             href="{{ printf .url $.Permalink $.Title }}"
             title="{{ i18n .title }}"
             aria-label="{{ i18n .title }}"
             target="_blank"
             rel="noopener noreferrer"
-            >{{ i18n .title }}</a>{{ if eq $i (sub $total 1) }}.{{ end }}
-        {{ end }}
+            >{{ i18n .title }}</a>{{- if eq $i (sub $total 1) }}.{{ end -}}
+        {{- end -}}
       {{ end }}
     </h4>
 
