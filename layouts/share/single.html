@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<script>
+(function () {
+  var d = {
+    {{ range $k, $v := hugo.Data.sharing -}}
+    "{{ $k }}": "{{ $v.url }}",
+    {{ end -}}
+  };
+  var p = new URLSearchParams(location.search);
+  var t = d[p.get("to")];
+  if (t) location.replace(
+    t.replace("%s", encodeURIComponent(p.get("url")))
+     .replace("%s", encodeURIComponent(p.get("title")))
+  );
+}());
+</script>

@@ -9,7 +9,7 @@
       {{ range $i, $v := $keys }}
         {{- with index $links $v -}}
           {{ if gt $i 0 }}{{ if eq $i (sub $total 1) }}, or {{ else }}, {{ end }}{{ end -}}<a
-            href="{{ printf .url $.Permalink $.Title }}"
+            href="/share/?to={{ $v }}&url={{ $.Permalink | urlquery }}&title={{ $.Title | urlquery }}"
             title="{{ i18n .title }}"
             aria-label="{{ i18n .title }}"
             target="_blank"
