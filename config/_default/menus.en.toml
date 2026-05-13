@@ -3,6 +3,11 @@ name = "Blog"
 pageRef = "posts"
 weight = 10
 
+[[main]]
+name = "About"
+pageRef = "about"
+weight = 15
+
 # [[main]]
 # name = "Categories"
 # pageRef = "categories"
@@ -13,11 +18,11 @@ weight = 10
 # pageRef = "tags"
 # weight = 20
 
-[[main]]
-identifier = "search"
-weight = 99
-[main.params]
-action = "search"
+# [[main]]
+# identifier = "search"
+# weight = 99
+# [main.params]
+# action = "search"
 
 # [[main]]
 # identifier = "locale"
